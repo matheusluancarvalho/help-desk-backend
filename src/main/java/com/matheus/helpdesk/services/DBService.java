@@ -48,7 +48,7 @@ public class DBService {
 
 		Tecnico tec2 = new Tecnico(null, "Alexei Volkoff", "986.781.950-02", "alexeivolkoff@gmail.com",
 				encoder.encode("123"));
-		tec1.addPerfil(Perfil.ADMIN);
+		tec2.addPerfil(Perfil.ADMIN);
 
 		Cliente cli2 = new Cliente(null, "Jennifer Aniston", "012.309.610-38", "jenniferaniston@gmmail.com",
 				encoder.encode("123"));
@@ -63,7 +63,7 @@ public class DBService {
 
 		Tecnico tec3 = new Tecnico(null, "Miguel Portella", "244.666.450-43", "miguelito@gmail.com",
 				encoder.encode("123"));
-		tec1.addPerfil(Perfil.ADMIN);
+		tec3.addPerfil(Perfil.TECNICO);
 
 		Cliente cli3 = new Cliente(null, "Adam Sandler", "063.255.340-50", "adamsandler@gmmail.com",
 				encoder.encode("123"));
@@ -79,7 +79,7 @@ public class DBService {
 
 		Tecnico tec4 = new Tecnico(null, "Andrew Scott", "662.303.610-51", "adrewscott@gmail.com",
 				encoder.encode("123"));
-		tec1.addPerfil(Perfil.ADMIN);
+		tec4.addPerfil(Perfil.TECNICO);
 
 		Cliente cli4 = new Cliente(null, "Margot Robbie", "712.425.290-39", "margotrobbie@gmmail.com",
 				encoder.encode("123"));
@@ -90,5 +90,23 @@ public class DBService {
 		tecnicoRepository.saveAll(Arrays.asList(tec4));
 		clienteRepository.saveAll(Arrays.asList(cli4));
 		chamadoRepository.saveAll(Arrays.asList(c4));
+		
+		//-------------------------Ordem de Serviço 5-----------------------------------
+		
+		
+		Tecnico tec5 = new Tecnico(null, "Brian Jones", "997.852.960-83", "brianjones@gmail.com",
+				encoder.encode("123"));
+		tec5.addPerfil(Perfil.TECNICO);
+
+		Cliente cli5 = new Cliente(null, "Yvonne Strahovski", "014.223.580-62", "yvonne@gmmail.com",
+				encoder.encode("123"));
+
+		Chamado c5 = new Chamado(null, Prioridade.BAIXA, Status.ANDAMENTO, "Chamado 04", "Projeto: Alerquina", tec4,
+				cli5);
+
+		tecnicoRepository.saveAll(Arrays.asList(tec5));
+		clienteRepository.saveAll(Arrays.asList(cli5));
+		chamadoRepository.saveAll(Arrays.asList(c5));
+		
 	}
 }
