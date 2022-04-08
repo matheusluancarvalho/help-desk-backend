@@ -35,6 +35,7 @@ public class DBService {
 		Tecnico tec1 = new Tecnico(null, "Matheus Carvalho", "838.592.162-10", "matheuscarvalhophd@yahoo.com",
 				encoder.encode("123"));
 		tec1.addPerfil(Perfil.ADMIN);
+		tec1.addPerfil(Perfil.TECNICO);
 
 		Cliente cli1 = new Cliente(null, "Gal Gadot", "543.702.876-85", "galgadot@gmmail.com", encoder.encode("123"));
 
@@ -68,7 +69,7 @@ public class DBService {
 		Cliente cli3 = new Cliente(null, "Adam Sandler", "063.255.340-50", "adamsandler@gmmail.com",
 				encoder.encode("123"));
 
-		Chamado c3 = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO, "Chamado 03", "Projeto: Gente Grande", tec3,
+		Chamado c3 = new Chamado(null, Prioridade.MEDIA, Status.ABERTO, "Chamado 03", "Projeto: Gente Grande", tec3,
 				cli3);
 
 		tecnicoRepository.saveAll(Arrays.asList(tec3));
@@ -84,7 +85,7 @@ public class DBService {
 		Cliente cli4 = new Cliente(null, "Margot Robbie", "712.425.290-39", "margotrobbie@gmmail.com",
 				encoder.encode("123"));
 
-		Chamado c4 = new Chamado(null, Prioridade.BAIXA, Status.ANDAMENTO, "Chamado 04", "Projeto: Alerquina", tec4,
+		Chamado c4 = new Chamado(null, Prioridade.MEDIA, Status.ABERTO, "Chamado 04", "Projeto: Alerquina", tec4,
 				cli4);
 
 		tecnicoRepository.saveAll(Arrays.asList(tec4));
@@ -101,12 +102,25 @@ public class DBService {
 		Cliente cli5 = new Cliente(null, "Yvonne Strahovski", "014.223.580-62", "yvonne@gmmail.com",
 				encoder.encode("123"));
 
-		Chamado c5 = new Chamado(null, Prioridade.BAIXA, Status.ANDAMENTO, "Chamado 04", "Projeto: Alerquina", tec4,
+		Chamado c5 = new Chamado(null, Prioridade.BAIXA, Status.ENCERRADO, "Chamado 05", "Projeto: Chuck", tec4,
 				cli5);
 
 		tecnicoRepository.saveAll(Arrays.asList(tec5));
 		clienteRepository.saveAll(Arrays.asList(cli5));
 		chamadoRepository.saveAll(Arrays.asList(c5));
+		
+		//-------------------------Ordem de Serviço 6-----------------------------------
+		
+
+		Cliente cli6 = new Cliente(null, "Megan Fox", "407.222.330-19", "meganfox@gmmail.com",
+						encoder.encode("123"));
+
+		Chamado c6 = new Chamado(null, Prioridade.BAIXA, Status.ENCERRADO, "Chamado 06", "Projeto: Transformers: A Vingança dos Derrotados", 
+				tec1, cli6);
+
+		tecnicoRepository.saveAll(Arrays.asList(tec1));
+		clienteRepository.saveAll(Arrays.asList(cli6));
+		chamadoRepository.saveAll(Arrays.asList(c6));
 		
 	}
 }
